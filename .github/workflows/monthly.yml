@@ -1,0 +1,61 @@
+name: Monatslauf
+
+on:
+  schedule:
+    - cron: "0 6 1 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  monatslauf:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Tests
+        run: python -m unittest discover -s tests -v
+
+      - name: Abruf, Bereinigung, Aggregate
+        run: |
+          MONTH=$(date -u +%Y-%m)
+          python scripts/fetch.py "$MONTH" || echo "::warning::Mindestens eine Datei konnte nicht abgerufen werden. Siehe data/raw/$MONTH/fetch_log.json"
+          python scripts/clean.py "$MONTH"
+          python scripts/aggregate.py "$MONTH"
+
+      - name: Daten committen
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          git diff --cached --quiet || git commit -m "Daten für $(date -u +%Y-%m)"
+          git push
+
+      - name: Seite zusammenstellen
+        run: |
+          mkdir -p _site/data
+          cp -r site/. _site/
+          cp -r data/aggregates _site/data/aggregates
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - id: deployment
+        uses: actions/deploy-pages@v4

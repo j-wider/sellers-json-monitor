@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+
+# Rohdateien von SSPs, die nicht (mehr) ausgewertet werden
+data/raw/*/google.json.gz
+data/raw/*/improve-digital.json.gz
+data/raw/*/adform.json.gz

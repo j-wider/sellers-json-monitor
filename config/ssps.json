@@ -1,0 +1,50 @@
+[
+  {
+    "id": "pubmatic",
+    "name": "PubMatic",
+    "adstxt_domain": "pubmatic.com",
+    "url": "https://cdn.pubmatic.com/sellers/data/sellers.json",
+    "color": "#2a9fd6",
+    "short": "PM"
+  },
+  {
+    "id": "magnite",
+    "name": "Magnite",
+    "adstxt_domain": "rubiconproject.com",
+    "url": "https://rubiconproject.com/sellers.json",
+    "color": "#e87ba4",
+    "short": "MG"
+  },
+  {
+    "id": "index-exchange",
+    "name": "Index Exchange",
+    "adstxt_domain": "indexexchange.com",
+    "url": "https://cdn.indexexchange.com/sellers.json",
+    "color": "#1baf7a",
+    "short": "IX"
+  },
+  {
+    "id": "openx",
+    "name": "OpenX",
+    "adstxt_domain": "openx.com",
+    "url": "https://openx.com/sellers.json",
+    "color": "#7e50fb",
+    "short": "OX"
+  },
+  {
+    "id": "equativ",
+    "name": "Equativ",
+    "adstxt_domain": "smartadserver.com",
+    "url": "https://equativ.com/sellers.json",
+    "color": "#fe5000",
+    "short": "EQ"
+  },
+  {
+    "id": "microsoft-monetize",
+    "name": "Microsoft Monetize",
+    "adstxt_domain": "appnexus.com",
+    "url": "https://appnexus.com/sellers.json",
+    "color": "#ffb900",
+    "short": "MM"
+  }
+]

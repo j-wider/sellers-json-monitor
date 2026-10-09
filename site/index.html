@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>sellers.json Monitor</title>
+<meta name="description" content="Beschreibende Auswertung öffentlicher sellers.json-Dateien ausgewählter SSPs.">
+<script>try { document.documentElement.dataset.theme = localStorage.getItem("theme") === "light" ? "light" : "dark"; } catch (e) { document.documentElement.dataset.theme = "dark"; }</script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <p class="brand">Erstellt von: <b>Jens Widerstein</b> - <a href="https://www.linkedin.com/in/jenswiderstein/" target="_blank" rel="noopener">LinkedIn-Profil</a></p>
+    <h1>sellers.json Monitor</h1>
+    <p class="lead">Welche Rollen führen SSPs in ihren öffentlichen sellers.json-Dateien, und wo überschneiden sich ihre direkt gelisteten Publisher?</p>
+    <div class="meta">
+      <span id="stand"></span>
+      <button type="button" class="themebtn" id="theme"></button>
+      <label class="month" id="month-wrap" hidden>Monat
+        <select id="month"></select>
+      </label>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section id="kpis" class="kpis" aria-label="Kennzahlen"></section>
+
+  <section class="flow" aria-labelledby="flow-h">
+    <h2 id="flow-h">Von der SSP über die Rolle zur Länderendung</h2>
+    <p class="hint">Die Strichstärke entspricht der Zahl der Seller-Einträge. Die Länderendung ist der letzte Teil der bereinigten Domain.</p>
+    <div class="filters" id="filters" role="group" aria-label="Filter"></div>
+    <p id="gnote" class="note" hidden></p>
+    <div class="chart-scroll">
+      <div class="chart" id="chart">
+        <canvas id="particles" aria-hidden="true"></canvas>
+        <svg id="sankey" role="img" aria-label="Sankey-Diagramm: SSP, Rolle, Länderendung"></svg>
+        <div id="tip" class="tip" role="status" hidden></div>
+      </div>
+    </div>
+    <p id="empty" class="empty" hidden>Für diese Auswahl gibt es keine Seller.</p>
+  </section>
+
+  <section id="roles" class="panel" aria-labelledby="ro-h"></section>
+
+  <section class="grid2">
+    <div id="ov-a" class="panel" aria-labelledby="ova-h"></div>
+    <div id="ov-b" class="panel" aria-labelledby="ovb-h"></div>
+  </section>
+
+  <section class="special" aria-labelledby="de-h">
+    <h2 id="de-h">Sonderauswertung: .de-Domains</h2>
+    <p id="de-intro" class="hint"></p>
+    <div class="grid2">
+      <div id="de-a" class="panel" aria-labelledby="dea-h"></div>
+      <div id="de-b" class="panel" aria-labelledby="deb-h"></div>
+    </div>
+  </section>
+
+  <section id="changes" class="panel" aria-labelledby="ch-h" hidden></section>
+
+  <section id="quality" class="panel" aria-labelledby="q-h"></section>
+  <section id="method" class="panel" aria-labelledby="m-h"></section>
+</main>
+
+<script src="vendor/d3.min.js"></script>
+<script src="vendor/d3-sankey.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
