@@ -5,3 +5,6 @@ __pycache__/
 data/raw/*/google.json.gz
 data/raw/*/improve-digital.json.gz
 data/raw/*/adform.json.gz
+
+# Material für den LinkedIn-Post (nicht veröffentlichen)
+post/
