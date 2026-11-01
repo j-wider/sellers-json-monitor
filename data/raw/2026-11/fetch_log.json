@@ -1,0 +1,62 @@
+[
+  {
+    "ssp": "pubmatic",
+    "url": "https://cdn.pubmatic.com/sellers/data/sellers.json",
+    "fetched_at": "2026-11-01T12:52:13+00:00",
+    "status": 200,
+    "final_url": "https://cdn.pubmatic.com/sellers/data/sellers.json",
+    "bytes": 938665,
+    "sha256": "22cec8e33b8061dadead1d93d14a7b77ff8842a209fbf7b712203b91f1b3fc87",
+    "ok": true
+  },
+  {
+    "ssp": "magnite",
+    "url": "https://rubiconproject.com/sellers.json",
+    "fetched_at": "2026-11-01T12:52:13+00:00",
+    "status": 200,
+    "final_url": "https://rubiconproject.com/sellers.json",
+    "bytes": 363945,
+    "sha256": "449387932ac622c70a63f0658c009d05e5edf1a0d108c77fdd34af05dff03b21",
+    "ok": true
+  },
+  {
+    "ssp": "index-exchange",
+    "url": "https://cdn.indexexchange.com/sellers.json",
+    "fetched_at": "2026-11-01T12:52:13+00:00",
+    "status": 200,
+    "final_url": "https://cdn.indexexchange.com/sellers.json",
+    "bytes": 546826,
+    "sha256": "b0981a41467fa51938952eaf9dc15161c5f8a0ea11de807c175b5d477edbf457",
+    "ok": true
+  },
+  {
+    "ssp": "openx",
+    "url": "https://openx.com/sellers.json",
+    "fetched_at": "2026-11-01T12:52:14+00:00",
+    "status": 200,
+    "final_url": "https://assets.openx.com/sellers.json",
+    "bytes": 1451431,
+    "sha256": "631fc58369f45d99fb30130732aa4d0bd1305be93f1f5926efdbd2cbbbafec0b",
+    "ok": true
+  },
+  {
+    "ssp": "equativ",
+    "url": "https://equativ.com/sellers.json",
+    "fetched_at": "2026-11-01T12:52:14+00:00",
+    "status": 200,
+    "final_url": "https://ced-ns.sascdn.com/iab/sellers.json",
+    "bytes": 454709,
+    "sha256": "b5d3da46bedc74a02167a05c2343ce851b5373f54d819642b57185abab249389",
+    "ok": true
+  },
+  {
+    "ssp": "microsoft-monetize",
+    "url": "https://appnexus.com/sellers.json",
+    "fetched_at": "2026-11-01T12:52:15+00:00",
+    "status": 200,
+    "final_url": "https://acdn.adnxs.com/sellers/1d/appnexus/sellers.json",
+    "bytes": 209821,
+    "sha256": "875965093996e6f175340e0e416275768c177716b5e8f65a2e2c38da126180f3",
+    "ok": true
+  }
+]
