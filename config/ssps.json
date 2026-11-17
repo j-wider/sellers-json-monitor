@@ -35,6 +35,7 @@
     "id": "equativ",
     "name": "Equativ",
     "adstxt_domain": "smartadserver.com",
+    "adstxt_aliases": ["equativ.com"],
     "url": "https://equativ.com/sellers.json",
     "color": "#fe5000",
     "short": "EQ"
@@ -43,6 +44,7 @@
     "id": "microsoft-monetize",
     "name": "Microsoft Monetize",
     "adstxt_domain": "appnexus.com",
+    "adstxt_aliases": ["xandr.com"],
     "url": "https://appnexus.com/sellers.json",
     "color": "#ffb900",
     "short": "MM"

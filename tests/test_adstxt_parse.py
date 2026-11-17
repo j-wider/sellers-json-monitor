@@ -3,7 +3,27 @@ import unittest
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "scripts"))
-from adstxt_parse import parse_adstxt  # noqa: E402
+from adstxt_parse import classify_site, parse_adstxt, ssp_lookup  # noqa: E402
+
+
+class SspTests(unittest.TestCase):
+    def test_alias(self):
+        ssps = [{"id": "equativ", "adstxt_domain": "smartadserver.com", "adstxt_aliases": ["equativ.com"]},
+                {"id": "openx", "adstxt_domain": "openx.com"}]
+        self.assertEqual(ssp_lookup(ssps), {"smartadserver.com": "equativ", "equativ.com": "equativ",
+                                            "openx.com": "openx"})
+
+
+class ClassifyTests(unittest.TestCase):
+    def test_einstufung(self):
+        werbung = parse_adstxt("google.com, pub-1, DIRECT")
+        self.assertEqual(classify_site("gefunden", werbung), "werbung")
+        self.assertEqual(classify_site("gefunden", parse_adstxt("placeholder.example.com, placeholder, DIRECT, placeholder")), "keine_werbung")
+        self.assertEqual(classify_site("gefunden", parse_adstxt("# nur Kommentar\nCONTACT=a@b.de")), "keine_werbung")
+        self.assertEqual(classify_site("keine_adstxt", None), "keine_werbung")
+        self.assertEqual(classify_site("fehlerseite", None), "keine_werbung")
+        for s in ("blockiert", "zeitueberschreitung", "fehler"):
+            self.assertEqual(classify_site(s, None), "nicht_abrufbar")
 
 
 class ParseTests(unittest.TestCase):
