@@ -17,6 +17,7 @@ concurrency:
 jobs:
   monatslauf:
     runs-on: ubuntu-latest
+    timeout-minutes: 180
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -36,6 +37,19 @@ jobs:
           python scripts/fetch.py "$MONTH" || echo "::warning::Mindestens eine Datei konnte nicht abgerufen werden. Siehe data/raw/$MONTH/fetch_log.json"
           python scripts/clean.py "$MONTH"
           python scripts/aggregate.py "$MONTH"
+
+      - name: ads.txt
+        # Ein Fehler im ads.txt-Teil darf den sellers.json-Teil nicht aufhalten.
+        continue-on-error: true
+        run: |
+          MONTH=$(date -u +%Y-%m)
+          if python scripts/crux.py "$MONTH"; then
+            python scripts/adstxt_fetch.py "$MONTH"
+            python scripts/adstxt_parse.py "$MONTH"
+            python scripts/aggregate_adstxt.py "$MONTH"
+          else
+            echo "::warning::ads.txt-Teil für $MONTH übersprungen (Startliste oder Erwachsenenliste nicht abrufbar)."
+          fi
 
       - name: Daten committen
         run: |
