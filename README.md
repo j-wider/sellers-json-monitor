@@ -93,7 +93,7 @@ Verkaufsweg je Zeile, nachgeschlagen über (SSP, Seller-ID) im sellers.json-Snap
 | über Reseller | Die Zeile ist RESELLER. |
 | über Vermarkter | Die Zeile ist DIRECT, das Konto gehört einer anderen Domain. |
 
-Vermarkter einer Website sind die Inhaber dieser DIRECT-Konten, gruppiert nach ihrer sellers.json-Domain und über `config/vermarkter.json` zu Häusern gebündelt. Konten ohne Domain (vertraulich) stehen gesammelt unter „Vertraulich“. Steht eine Seller-ID mehrfach in einer sellers.json, zählt der erste Eintrag mit Typ Publisher. `equativ.com` und `xandr.com` gelten als ads.txt-Domains von Equativ und Microsoft Monetize, weil ihre Seller-IDs in deren sellers.json stehen. SpotX und Telaria (heute Magnite) haben eigene ID-Räume und werden nicht zugeordnet.
+Vermarkter einer Website sind die Inhaber dieser DIRECT-Konten, gruppiert nach ihrer sellers.json-Domain und über `config/vermarkter.json` zu Häusern gebündelt. Konten ohne gültige Domain (meist vertraulich markiert) stehen gesammelt unter „Ohne Domain“. Steht eine Seller-ID mehrfach in einer sellers.json, zählt der erste Eintrag mit Typ Publisher. `equativ.com` und `xandr.com` gelten als ads.txt-Domains von Equativ und Microsoft Monetize, weil ihre Seller-IDs in deren sellers.json stehen. SpotX und Telaria (heute Magnite) haben eigene ID-Räume und werden nicht zugeordnet.
 
 In den Marktkennzahlen zählt eine Website je SSP einmal, beim direktesten Weg (selbst vor Vermarkter, Reseller, Google-Bidding, unbekannt). Der Anteil der Websites mit Werbung bezieht sich auf die abrufbaren Websites.
 

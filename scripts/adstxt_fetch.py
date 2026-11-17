@@ -9,10 +9,12 @@ dazu höchstens ein Sprung auf eine fremde Domain, die selbst nicht mehr weiterl
 import csv
 import gzip
 import hashlib
+import http.client
 import json
 import socket
 import ssl
 import sys
+import time
 import urllib.error
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor
@@ -31,6 +33,10 @@ MAX_HOPS = 5
 # 308 ist gleichbedeutend mit 301 und wird deshalb wie 301, 302 und 307 behandelt.
 REDIRECTS = {301, 302, 307, 308}
 UNREACHABLE = {"blockiert", "zeitueberschreitung", "fehler"}
+DEADLINE = 30  # Sekunden je Abruf insgesamt
+CHUNK = 64 * 1024
+# Von zwei Versuchen gilt das Ergebnis, das weiter vorn steht.
+RANK = ["gefunden", "keine_adstxt", "fehlerseite", "blockiert", "zeitueberschreitung", "fehler"]
 
 
 def redirect_allowed(domain, chain, psl):
@@ -72,8 +78,18 @@ def _request(url):
     """Gibt (status, content_type, body, location, error) zurück."""
     req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "text/plain, */*"})
     try:
+        start = time.monotonic()
         with _OPENER.open(req, timeout=TIMEOUT) as r:
-            return r.status, r.headers.get("Content-Type", ""), r.read(MAX_BYTES), None, None
+            # TIMEOUT gilt je Socket-Operation. Ein Server, der Bytes tröpfeln lässt, wird über die Gesamtfrist gestoppt.
+            body = b""
+            while len(body) < MAX_BYTES:
+                if time.monotonic() - start > DEADLINE:
+                    return None, "", b"", None, "timeout"
+                chunk = r.read(min(CHUNK, MAX_BYTES - len(body)))
+                if not chunk:
+                    break
+                body += chunk
+            return r.status, r.headers.get("Content-Type", ""), body, None, None
     except urllib.error.HTTPError as e:
         return e.code, e.headers.get("Content-Type", ""), b"", e.headers.get("Location"), None
     except (TimeoutError, socket.timeout):
@@ -82,7 +98,7 @@ def _request(url):
         if isinstance(e.reason, (TimeoutError, socket.timeout)):
             return None, "", b"", None, "timeout"
         return None, "", b"", None, f"{type(e.reason).__name__}: {e.reason}"
-    except (ssl.SSLError, OSError, ValueError) as e:
+    except (ssl.SSLError, OSError, ValueError, http.client.HTTPException) as e:
         return None, "", b"", None, f"{type(e).__name__}: {e}"
 
 
@@ -101,14 +117,22 @@ def _fetch_url(domain, url, psl):
 
 
 def fetch_domain(domain, psl):
-    for url in (f"https://{domain}/ads.txt", f"https://www.{domain}/ads.txt"):
-        chain, status, ctype, body, error = _fetch_url(domain, url, psl)
-        result = classify_response(status, ctype, body, error)
-        if result in ("gefunden", "keine_adstxt"):
-            break
+    """Versucht DOMAIN und, falls nötig, www.DOMAIN. Behalten wird das aussagekräftigere Ergebnis."""
+    attempts = []
+    try:
+        for url in (f"https://{domain}/ads.txt", f"https://www.{domain}/ads.txt"):
+            chain, status, ctype, body, error = _fetch_url(domain, url, psl)
+            attempts.append((classify_response(status, ctype, body, error), url, chain, status, body, error))
+            if attempts[-1][0] in ("gefunden", "keine_adstxt"):
+                break
+    except Exception as e:  # ein einzelner kaputter Server darf den Monatslauf nicht abbrechen
+        url = f"https://{domain}/ads.txt"
+        attempts.append(("fehler", url, [url], None, b"", f"{type(e).__name__}: {e}"))
+    result, url, chain, status, body, error = min(attempts, key=lambda a: RANK.index(a[0]))
     entry = {"domain": domain, "status": result, "url": url, "final_url": chain[-1], "http_status": status,
              "bytes": len(body), "sha256": hashlib.sha256(body).hexdigest() if body else None,
-             "redirects": len(chain) - 1, "detail": error}
+             "redirects": len(chain) - 1, "detail": error, "first_status": attempts[0][0],
+             "www_status": attempts[1][0] if len(attempts) > 1 else None}
     text = body.decode("utf-8", "replace") if result == "gefunden" else None
     return entry, text
 

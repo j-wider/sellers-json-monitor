@@ -41,6 +41,7 @@ jobs:
       - name: ads.txt
         # Ein Fehler im ads.txt-Teil darf den sellers.json-Teil nicht aufhalten.
         continue-on-error: true
+        timeout-minutes: 60
         run: |
           MONTH=$(date -u +%Y-%m)
           if python scripts/crux.py "$MONTH"; then

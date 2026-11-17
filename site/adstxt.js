@@ -179,7 +179,7 @@
     if (!v) return;
     const groups = ["Top 1.000", "Top 5.000", "Top 10.000"].map((t) => [t, v.site_list.filter(([, r]) => tier(r) === t)]).filter(([, l]) => l.length);
     box.innerHTML = `<h2>${esc(v.name)}</h2>
-      <p>${v.id === CONF ? "Konten, die in der sellers.json als vertraulich markiert sind und keine Domain nennen. Sie lassen sich keinem Haus zuordnen." : "Domains laut sellers.json: " + esc(v.domains.join(", "))}</p>
+      <p>${v.id === CONF ? "Konten, die in der sellers.json keine gültige Domain nennen, meist weil sie als vertraulich markiert sind. Sie lassen sich keinem Haus zuordnen." : "Domains laut sellers.json: " + esc(v.domains.join(", "))}</p>
       <div class="kv"><div><b>${fmt.format(v.sites)}</b><span>Websites</span></div><div><b>${fmt.format(v.top1000)}</b><span>davon Top 1.000</span></div><div><b>${Object.keys(v.ssps).length}</b><span>SSPs</span></div></div>
       <h3>Über welche SSPs</h3>
       <p class="note">Strichstärke: Zahl der Websites, deren ads.txt ein DIRECT-Konto des Vermarkters bei dieser SSP nennt. Eine Website kann bei mehreren SSPs zählen.</p>

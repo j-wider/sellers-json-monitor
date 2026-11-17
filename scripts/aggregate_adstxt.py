@@ -61,7 +61,7 @@ def build_adstxt(month, crux_meta, fetch_log, domain_rows, line_rows, index, gro
                       "v": sorted(owners), "rows": rows})
     vermarkter = []
     for key, v in vm.items():
-        name = names.get(key) or ("Vertraulich (ohne Domain)" if key == CONFIDENTIAL else
+        name = names.get(key) or ("Ohne Domain (meist vertraulich)" if key == CONFIDENTIAL else
                                   (v["names"].most_common(1)[0][0] if v["names"] else key))
         site_list = sorted(([d, r] for d, r in v["sites"].items()), key=lambda x: (x[1], x[0]))
         vermarkter.append({"id": key, "name": name, "domains": sorted(v["domains"]), "sites": len(site_list),
