@@ -79,6 +79,34 @@ def build_adstxt(month, crux_meta, fetch_log, domain_rows, line_rows, index, gro
     }
 
 
+def shard_of(domain):
+    c = domain[:1]
+    return c if c.isascii() and c.isalnum() else "_"
+
+
+def split_rows(agg, ssp_ids):
+    """Nimmt die ads.txt-Zeilen aus agg["sites"] heraus und verteilt sie nach Anfangsbuchstabe der Domain.
+
+    Zeile: [SSP-Index, Seller-ID, Verkaufsweg-Index, 0 = DIRECT / 1 = RESELLER]. Verkäufernamen stehen
+    einmal je Teildatei unter "SSP-Index:Seller-ID".
+    """
+    pos = {s: i for i, s in enumerate(ssp_ids)}
+    shards = {}
+    for s in agg["sites"]:
+        rows = s.pop("rows")
+        if not rows:
+            continue
+        sh = shards.setdefault(shard_of(s["d"]), {"names": {}, "sites": {}})
+        out = []
+        for ssp, sid, name, path, rel in rows:
+            out.append([pos[ssp], sid, PATH_ORDER.index(path), int(rel == "RESELLER")])
+            if name:
+                sh["names"][f"{pos[ssp]}:{sid}"] = name
+        sh["sites"][s["d"]] = out
+    agg["row_format"] = {"ssps": ssp_ids, "paths": PATH_ORDER}
+    return shards
+
+
 def _csv(path):
     with gzip.open(path, "rt", encoding="utf-8", newline="") as f:
         return list(csv.DictReader(f))
@@ -102,9 +130,19 @@ def main(month):
         _csv(ROOT / "data" / "adstxt" / f"{month}-domains.csv.gz"), _csv(ROOT / "data" / "adstxt" / f"{month}.csv.gz"),
         account_index(rows), groups, names, psl,
         json.loads(prev_p.read_text(encoding="utf-8")) if prev_p.exists() else None)
+    ssps = json.loads((ROOT / "config" / "ssps.json").read_text(encoding="utf-8"))
+    shards = split_rows(agg, [s["id"] for s in ssps])
+    rows_dir = agg_dir / f"{month}-adstxt"
+    rows_dir.mkdir(parents=True, exist_ok=True)
+    for old in rows_dir.glob("*.json"):
+        old.unlink()
+    for k, sh in shards.items():
+        (rows_dir / f"{k}.json").write_text(json.dumps(sh, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     out = agg_dir / f"{month}-adstxt.json"
     out.write_text(json.dumps(agg, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
-    print(f"-> {out} ({out.stat().st_size} Bytes), {len(agg['vermarkter'])} Vermarkter")
+    size = sum(p.stat().st_size for p in rows_dir.glob("*.json"))
+    print(f"-> {out} ({out.stat().st_size} Bytes), {len(agg['vermarkter'])} Vermarkter; "
+          f"Zeilen in {len(shards)} Teildateien ({size} Bytes) unter {rows_dir}")
     return 0
 
 

@@ -4,7 +4,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "scripts"))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from aggregate_adstxt import build_adstxt  # noqa: E402
+from aggregate_adstxt import build_adstxt, shard_of, split_rows  # noqa: E402
 from test_vermarkter import GROUPS, INDEX, PSL  # noqa: E402
 
 
@@ -60,6 +60,21 @@ class BuildTests(unittest.TestCase):
         self.assertEqual(m["10000"]["median_lines"], 6)
         self.assertAlmostEqual(m["10000"]["reseller_share"], 1 / 6)
         self.assertIsNone(self.agg["prev"])
+
+
+class SplitTests(unittest.TestCase):
+    def test_zeilen_auslagern(self):
+        agg = build_adstxt("2026-11", META, LOG, DOMAINS, LINES, INDEX, GROUPS, {}, PSL, None)
+        shards = split_rows(agg, ["pubmatic", "magnite", "index-exchange", "openx"])
+        self.assertTrue(all("rows" not in s for s in agg["sites"]))
+        self.assertEqual(set(shards), {"z"})
+        z = shards["z"]
+        self.assertIn([0, "1", 0, 0], z["sites"]["zeitung.de"])       # pubmatic, selbst, DIRECT
+        self.assertIn([3, "4", 3, 1], z["sites"]["zeitung.de"])       # openx, google, RESELLER
+        self.assertEqual(z["names"]["0:1"], "N")
+        self.assertNotIn("2:9", z["names"])                           # unbekannte ID ohne Namen
+        self.assertEqual(shard_of("1und1.de"), "1")
+        self.assertEqual(shard_of("äpfel.de"), "_")
 
 
 if __name__ == "__main__":
