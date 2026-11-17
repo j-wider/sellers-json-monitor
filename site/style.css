@@ -227,6 +227,7 @@ th[aria-sort="ascending"] .sortbtn, th[aria-sort="descending"] .sortbtn { color:
 .facts dt { color: var(--muted); }
 .facts dd { margin: 0; }
 .srt td { white-space: nowrap; }
+.srt th, .srt td { text-align: left; }
 .srt td.id { font-variant-numeric: tabular-nums; }
 .srt .sq { margin-right: 6px; }
 .dim { color: var(--muted); }
