@@ -52,7 +52,9 @@ class BuildTests(unittest.TestCase):
 
     def test_markt(self):
         m = self.agg["market"]
-        self.assertEqual(m["10000"]["per_ssp"]["pubmatic"], {"alle": 1, "selbst": 1, "vermarkter": 1})
+        # Je SSP zählt eine Website einmal, beim direktesten Verkaufsweg.
+        self.assertEqual(m["10000"]["per_ssp"]["pubmatic"], {"alle": 1, "selbst": 1})
+        self.assertEqual(m["10000"]["per_ssp"]["openx"], {"alle": 1, "vermarkter": 1})
         self.assertEqual(m["10000"]["share_ads"], 0.5)  # nicht abrufbare Domains zählen nicht zur Basis
         self.assertEqual(m["1000"]["share_ads"], 1.0)
         self.assertEqual(m["10000"]["median_lines"], 6)

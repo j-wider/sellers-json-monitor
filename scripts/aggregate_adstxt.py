@@ -11,6 +11,8 @@ from domains import load_psl, registrable_domain
 from vermarkter import CONFIDENTIAL, ROOT, account_index, load_groups, owner_key, sales_path
 
 TIERS = (1000, 5000, 10000)
+# Je SSP zählt eine Website einmal, beim direktesten Verkaufsweg, damit sich die Balken stapeln lassen.
+PATH_ORDER = ["selbst", "vermarkter", "reseller", "google", "unbekannt"]
 
 
 def _market(sites):
@@ -24,7 +26,7 @@ def _market(sites):
             paths[ssp].add(path)
         for ssp, ps in paths.items():
             per_ssp[ssp]["alle"] += 1
-            per_ssp[ssp].update(ps)
+            per_ssp[ssp][min(ps, key=PATH_ORDER.index)] += 1
     return {"domains": len(sites), "nicht_abrufbar": len(sites) - len(reachable), "werbung": len(ads),
             "share_ads": len(ads) / len(reachable) if reachable else None,
             "median_lines": statistics.median(s["n"] for s in ads) if ads else None,
