@@ -24,7 +24,15 @@
   </div>
 </header>
 
+<nav class="wrap tabs" role="tablist" aria-label="Ansichten">
+  <button type="button" role="tab" id="t-uebersicht" aria-controls="p-uebersicht" data-tab="uebersicht">Übersicht</button>
+  <button type="button" role="tab" id="t-vermarkter" aria-controls="p-vermarkter" data-tab="vermarkter">Vermarkter</button>
+  <button type="button" role="tab" id="t-suche" aria-controls="p-suche" data-tab="suche">Website-Suche</button>
+  <button type="button" role="tab" id="t-markt" aria-controls="p-markt" data-tab="markt">Marktkennzahlen</button>
+</nav>
+
 <main class="wrap">
+<div id="p-uebersicht" role="tabpanel" aria-labelledby="t-uebersicht">
   <section id="kpis" class="kpis" aria-label="Kennzahlen"></section>
 
   <section class="flow" aria-labelledby="flow-h">
@@ -62,10 +70,15 @@
 
   <section id="quality" class="panel" aria-labelledby="q-h"></section>
   <section id="method" class="panel" aria-labelledby="m-h"></section>
+</div>
+<div id="p-vermarkter" class="ax" role="tabpanel" aria-labelledby="t-vermarkter" hidden></div>
+<div id="p-suche" class="ax" role="tabpanel" aria-labelledby="t-suche" hidden></div>
+<div id="p-markt" class="ax" role="tabpanel" aria-labelledby="t-markt" hidden></div>
 </main>
 
 <script src="vendor/d3.min.js"></script>
 <script src="vendor/d3-sankey.min.js"></script>
 <script src="app.js"></script>
+<script src="adstxt.js"></script>
 </body>
 </html>
