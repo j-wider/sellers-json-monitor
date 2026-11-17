@@ -1,0 +1,9 @@
+{
+  "crux_month": "202610",
+  "crux_url": "https://raw.githubusercontent.com/zakird/crux-top-lists/main/data/country/de/202610.csv.gz",
+  "origins": 1000000,
+  "domains_before_filter": 8686,
+  "adult_removed": 709,
+  "adult_source": "UT1 (Universität Toulouse Capitole, CC BY-SA 4.0) über github.com/olbat/ut1-blacklists",
+  "created_at": "2026-11-17T17:11:46+00:00"
+}
