@@ -1,0 +1,670 @@
+[
+  {
+    "id": "stroeer",
+    "name": "Ströer",
+    "domains": [
+      "yieldlove.com",
+      "stroeer.de",
+      "yieldlove.de",
+      "stroeer.com",
+      "stroeerdigitalmedia.de"
+    ]
+  },
+  {
+    "id": "audienzz",
+    "name": "audienzz AG",
+    "domains": [
+      "audienzz.com",
+      "audienzz.ch"
+    ]
+  },
+  {
+    "id": "showheroes",
+    "name": "ShowHeroes SE",
+    "domains": [
+      "showheroes.com",
+      "viralize.com"
+    ]
+  },
+  {
+    "id": "vlyby",
+    "name": "Azerion Technology B.V.",
+    "domains": [
+      "vlyby.com",
+      "pubgalaxy.com",
+      "headerlift.com",
+      "adplay.it",
+      "keymobile.se"
+    ]
+  },
+  {
+    "id": "wp",
+    "name": "Wirtualna Polska Media S.A.",
+    "domains": [
+      "wp.pl",
+      "wpartner.pl"
+    ]
+  },
+  {
+    "id": "symplr",
+    "name": "MSO Digital GmbH & Co. KG",
+    "domains": [
+      "symplr.de",
+      "mso-digital.de"
+    ]
+  },
+  {
+    "id": "lijit",
+    "name": "Sovrn Inc.",
+    "domains": [
+      "lijit.com",
+      "proper.io"
+    ]
+  },
+  {
+    "id": "yahooinc",
+    "name": "Yahoo inc.",
+    "domains": [
+      "yahooinc.com",
+      "yahoo.co.jp",
+      "verizonmedia.com",
+      "yahoo.com"
+    ]
+  },
+  {
+    "id": "webads",
+    "name": "WebAds NL",
+    "domains": [
+      "webads.eu",
+      "webads.es"
+    ]
+  },
+  {
+    "id": "admatic",
+    "name": "Admatic Teknoloji AS",
+    "domains": [
+      "admatic.de",
+      "admatic.com.tr"
+    ]
+  },
+  {
+    "id": "freestar",
+    "name": "Publisher First, Inc.",
+    "domains": [
+      "freestar.com",
+      "freestar.io"
+    ]
+  },
+  {
+    "id": "admixer",
+    "name": "Admixer EU GmbH",
+    "domains": [
+      "admixer.net",
+      "admixer.com",
+      "admixer.co.kr"
+    ]
+  },
+  {
+    "id": "etargetmedia",
+    "name": "ETARGET SE",
+    "domains": [
+      "etargetmedia.com",
+      "etarget.sk"
+    ]
+  },
+  {
+    "id": "madsack",
+    "name": "RND RedaktionsNetzwerk Deutschland",
+    "domains": [
+      "madsack.de",
+      "rnd.de"
+    ]
+  },
+  {
+    "id": "rp-digital",
+    "name": "Rheinische Post Mediengruppe",
+    "domains": [
+      "rp-digital.de",
+      "rp-online.de",
+      "rheinischepostmediengruppe.de"
+    ]
+  },
+  {
+    "id": "ringieraxelspringer",
+    "name": "Ringier Axel Springer Polska",
+    "domains": [
+      "ringieraxelspringer.pl",
+      "hoppex.hu",
+      "ringier.rs",
+      "ringier.ch",
+      "ringier.ro",
+      "arukereso.hu",
+      "ringieraxelspringer.sk",
+      "ringier.sk",
+      "ringier.com",
+      "ringier-advertising.ch",
+      "ringier.hu"
+    ]
+  },
+  {
+    "id": "optimanetwork",
+    "name": "Optima Network SL",
+    "domains": [
+      "optimanetwork.net",
+      "optimanetwork.com"
+    ]
+  },
+  {
+    "id": "ezoic",
+    "name": "Ezoic Inc.",
+    "domains": [
+      "ezoic.ai",
+      "ezoic.co.uk"
+    ]
+  },
+  {
+    "id": "sky",
+    "name": "Sky Digital Media",
+    "domains": [
+      "sky.com",
+      "4strokemedia.com",
+      "sky.it",
+      "sky.co.uk"
+    ]
+  },
+  {
+    "id": "livesportmedia",
+    "name": "Livesport s.r.o.",
+    "domains": [
+      "livesportmedia.eu",
+      "livesport.eu",
+      "diretta.it"
+    ]
+  },
+  {
+    "id": "optidigital",
+    "name": "Opti Digital SAS",
+    "domains": [
+      "optidigital.fr",
+      "optidigital.com"
+    ]
+  },
+  {
+    "id": "gb-next",
+    "name": "Goldbach Group AG",
+    "domains": [
+      "gb-next.ch",
+      "tx.group",
+      "20min.ch"
+    ]
+  },
+  {
+    "id": "evolution-adv",
+    "name": "Evolution ADV srl.",
+    "domains": [
+      "evolution-adv.it",
+      "evolutionadv.it"
+    ]
+  },
+  {
+    "id": "ad-alliance",
+    "name": "Ad Alliance GmbH",
+    "domains": [
+      "ad-alliance.de",
+      "adalliance.nl"
+    ]
+  },
+  {
+    "id": "noktamedya",
+    "name": "Noktacom Medya Internet Hizmetleri San. ve Tic. A.S",
+    "domains": [
+      "noktamedya.com",
+      "empower.net"
+    ]
+  },
+  {
+    "id": "adops",
+    "name": "OCM Digital Media Cyprus",
+    "domains": [
+      "adops.gr",
+      "adops.com"
+    ]
+  },
+  {
+    "id": "rev",
+    "name": "RevIQ LLC",
+    "domains": [
+      "rev.iq",
+      "op.gg"
+    ]
+  },
+  {
+    "id": "rakuten",
+    "name": "Rakuten",
+    "domains": [
+      "rakuten.tv",
+      "rakuten.com"
+    ]
+  },
+  {
+    "id": "timesofindia",
+    "name": "Times Internet Limited",
+    "domains": [
+      "timesofindia.com",
+      "indiatimes.com",
+      "timesinternet.in"
+    ]
+  },
+  {
+    "id": "webedia-group",
+    "name": "Webedia GmbH",
+    "domains": [
+      "webedia-group.com",
+      "webedia-group.de"
+    ]
+  },
+  {
+    "id": "microsoft",
+    "name": "Microsoft",
+    "domains": [
+      "microsoft.com",
+      "microsoftcasualgames.com"
+    ]
+  },
+  {
+    "id": "blutonic",
+    "name": "bluTonic Inc.",
+    "domains": [
+      "blutonic.com",
+      "coedmedia.com"
+    ]
+  },
+  {
+    "id": "tvazteca",
+    "name": "Azteca Mexico",
+    "domains": [
+      "tvazteca.com",
+      "tvazteca.com.mx"
+    ]
+  },
+  {
+    "id": "buysellads",
+    "name": "BuySellAds",
+    "domains": [
+      "buysellads.com",
+      "buysellads.net"
+    ]
+  },
+  {
+    "id": "ziffdavis",
+    "name": "Ziff Davis, LLC",
+    "domains": [
+      "ziffdavis.com",
+      "everydayhealthgroup.com"
+    ]
+  },
+  {
+    "id": "agora",
+    "name": "Agora",
+    "domains": [
+      "agora.pl",
+      "gazeta.pl"
+    ]
+  },
+  {
+    "id": "1337ugc",
+    "name": "1337 UGC GmbH",
+    "domains": [
+      "1337ugc.de",
+      "crosswordsolver.com"
+    ]
+  },
+  {
+    "id": "autoscout24",
+    "name": "AutoScout24 GmbH",
+    "domains": [
+      "autoscout24.com",
+      "autoscout.de",
+      "autoscout24.de"
+    ]
+  },
+  {
+    "id": "condenast",
+    "name": "The Condé Nast International",
+    "domains": [
+      "condenast.co.uk",
+      "condenast.com",
+      "condenast.es"
+    ]
+  },
+  {
+    "id": "dpgmedia",
+    "name": "DPG Media NL",
+    "domains": [
+      "dpgmedia.nl",
+      "dpgmedia.be"
+    ]
+  },
+  {
+    "id": "dpgmediagroup",
+    "name": "DPG Media Group NV",
+    "domains": [
+      "dpgmediagroup.com",
+      "persgroep.nl",
+      "persgroep.be"
+    ]
+  },
+  {
+    "id": "heise",
+    "name": "Heise Medien",
+    "domains": [
+      "heise.de",
+      "heise-gruppe.de"
+    ]
+  },
+  {
+    "id": "scout24",
+    "name": "Scout24 AG",
+    "domains": [
+      "scout24.com",
+      "immobilienscout24.de"
+    ]
+  },
+  {
+    "id": "espn",
+    "name": "ESPN International",
+    "domains": [
+      "espn.com",
+      "espn.com.br"
+    ]
+  },
+  {
+    "id": "naspers",
+    "name": "Naspers Classifieds Sp. z o.o.",
+    "domains": [
+      "naspers.com",
+      "olx.pl",
+      "olx.ro"
+    ]
+  },
+  {
+    "id": "wallstreet-online",
+    "name": "Smartbroker Holding AG",
+    "domains": [
+      "wallstreet-online.de",
+      "wallstreet-online.ag"
+    ]
+  },
+  {
+    "id": "nbc",
+    "name": "NBCUniversal Media, LLC",
+    "domains": [
+      "nbc.com",
+      "versantmedia.com"
+    ]
+  },
+  {
+    "id": "hitopic",
+    "name": "Hitopic  Supply FR",
+    "domains": [
+      "hitopic.fr",
+      "realtimedata.fr"
+    ]
+  },
+  {
+    "id": "ebay",
+    "name": "ebayFRITES",
+    "domains": [
+      "ebay.fr",
+      "ebay.com",
+      "ebay.co.uk"
+    ]
+  },
+  {
+    "id": "destinytracker",
+    "name": "Tracker Network LLC",
+    "domains": [
+      "destinytracker.com",
+      "thetrackernetwork.com",
+      "tracker.gg"
+    ]
+  },
+  {
+    "id": "mediamond",
+    "name": "Mediamond S.p.A.",
+    "domains": [
+      "mediamond.it",
+      "banzai.it"
+    ]
+  },
+  {
+    "id": "news",
+    "name": "News UK & Ireland Limited",
+    "domains": [
+      "news.co.uk",
+      "dowjones.com"
+    ]
+  },
+  {
+    "id": "skyscanner",
+    "name": "Skyscanner Private Limited",
+    "domains": [
+      "skyscanner.com.sg",
+      "skyscanner.net"
+    ]
+  },
+  {
+    "id": "kleiderkreisel",
+    "name": "Vinted UAB",
+    "domains": [
+      "kleiderkreisel.de",
+      "vinted.com",
+      "vinted.lt"
+    ]
+  },
+  {
+    "id": "rogerssportsandmedia",
+    "name": "Rogers Media Inc",
+    "domains": [
+      "rogerssportsandmedia.com",
+      "rogersmedia.com"
+    ]
+  },
+  {
+    "id": "unidadeditorial",
+    "name": "Unidad Editorial",
+    "domains": [
+      "unidadeditorial.com",
+      "unidadeditorial.es",
+      "elmundo.es"
+    ]
+  },
+  {
+    "id": "discovery",
+    "name": "Discovery Communications Europe Ltd",
+    "domains": [
+      "discovery.com",
+      "eurosport.com",
+      "eurosport.co.uk",
+      "eurosport.fr"
+    ]
+  },
+  {
+    "id": "media-lab",
+    "name": "MediaLab.Ai, Inc",
+    "domains": [
+      "media-lab.ai",
+      "imgur.com",
+      "genius.com"
+    ]
+  },
+  {
+    "id": "soyummy",
+    "name": "First Media",
+    "domains": [
+      "soyummy.com",
+      "first.media"
+    ]
+  },
+  {
+    "id": "dnevnik",
+    "name": "Hanza Media d.o.o.",
+    "domains": [
+      "dnevnik.si",
+      "jutarnji.hr"
+    ]
+  },
+  {
+    "id": "any-digital",
+    "name": "Ad Asia Holdings Pte., Ltd",
+    "domains": [
+      "any-digital.com",
+      "fourm.jp"
+    ]
+  },
+  {
+    "id": "grandplaymedia",
+    "name": "Generation Premium Inc.",
+    "domains": [
+      "grandplaymedia.com",
+      "generationpremium.com"
+    ]
+  },
+  {
+    "id": "antenagroup",
+    "name": "ANTENA TV Group SA",
+    "domains": [
+      "antenagroup.ro",
+      "a1.ro"
+    ]
+  },
+  {
+    "id": "zmaticoo",
+    "name": "Click Tech Limited",
+    "domains": [
+      "zmaticoo.com",
+      "yeahmobi.com"
+    ]
+  },
+  {
+    "id": "mcontigo",
+    "name": "Grupo M Contigo, S.L.",
+    "domains": [
+      "mcontigo.com",
+      "melhorcomsaude.com"
+    ]
+  },
+  {
+    "id": "amaurymedia",
+    "name": "Amaury Media",
+    "domains": [
+      "amaurymedia.fr",
+      "lequipe.fr"
+    ]
+  },
+  {
+    "id": "bonnier",
+    "name": "Bonnier Business (Polska) sp. z o.o.",
+    "domains": [
+      "bonnier.pl",
+      "pb.pl"
+    ]
+  },
+  {
+    "id": "esimedia",
+    "name": "Independent Digital News  Media Ltd",
+    "domains": [
+      "esimedia.co.uk",
+      "independent.co.uk"
+    ]
+  },
+  {
+    "id": "elo",
+    "name": "Elo Entertainment Inc.",
+    "domains": [
+      "elo.io",
+      "speedrun.com"
+    ]
+  },
+  {
+    "id": "esmg",
+    "name": "Everysport Group AB",
+    "domains": [
+      "esmg.se",
+      "everysportgroup.com"
+    ]
+  },
+  {
+    "id": "reedpop",
+    "name": "Gamer Network Limited",
+    "domains": [
+      "reedpop.com",
+      "gamer.network"
+    ]
+  },
+  {
+    "id": "eurogamer",
+    "name": "Eurogamer",
+    "domains": [
+      "eurogamer.net",
+      "gamer-network.net"
+    ]
+  },
+  {
+    "id": "piemmeonline",
+    "name": "Piemme Spa",
+    "domains": [
+      "piemmeonline.it",
+      "piemmemedia.it"
+    ]
+  },
+  {
+    "id": "gamesyscorporate",
+    "name": "LiveScore Limited",
+    "domains": [
+      "gamesyscorporate.com",
+      "livescoregroup.com"
+    ]
+  },
+  {
+    "id": "mediaset",
+    "name": "PUBLIESPANA S.A.U.",
+    "domains": [
+      "mediaset.es",
+      "publiesp.es"
+    ]
+  },
+  {
+    "id": "zoover",
+    "name": "Infoplaza Network BV",
+    "domains": [
+      "zoover.nl",
+      "infoplaza.com",
+      "infoplaza.nl"
+    ]
+  },
+  {
+    "id": "futureplc",
+    "name": "Future US Inc.",
+    "domains": [
+      "futureplc.com",
+      "futurenet.com"
+    ]
+  },
+  {
+    "id": "navercorp",
+    "name": "NAVER Corporation",
+    "domains": [
+      "navercorp.com",
+      "naver.com"
+    ]
+  },
+  {
+    "id": "swissmarketplace",
+    "name": "SMG Swiss Marketplace Group",
+    "domains": [
+      "swissmarketplace.group",
+      "scout24.ch"
+    ]
+  }
+]
